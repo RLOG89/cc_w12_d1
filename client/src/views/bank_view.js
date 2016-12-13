@@ -43,7 +43,11 @@ BankView.prototype = {
     addInterest.onclick = function() {
       this.bank.payInterest(10);
       this.render();
+      this.save();
     }.bind(this);
+  },
+  save: function() {
+    localStorage.savedAccts = JSON.stringify(this.bank.accounts);
   }
 
 };
